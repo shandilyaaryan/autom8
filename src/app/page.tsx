@@ -1,8 +1,10 @@
+import { caller } from '@/trpc/server'
 import React from 'react'
 
-const page = () => {
+const page = async () => {
+  const users = await caller.getUsers();
   return (
-    <div>page</div>
+    <div>{JSON.stringify(users)}</div>
   )
 }
 
