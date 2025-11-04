@@ -88,6 +88,12 @@ export function RegisterForm() {
                     type="button"
                     disabled={isPending}
                   >
+                    <Image
+                      src="/logos/github.svg"
+                      alt="Github"
+                      height={18}
+                      width={18}
+                    />
                     Continue with Github
                   </Button>
                   <Button
@@ -96,6 +102,12 @@ export function RegisterForm() {
                     type="button"
                     disabled={isPending}
                   >
+                    <Image
+                      src="/logos/google.svg"
+                      alt="Google"
+                      height={18}
+                      width={18}
+                    />
                     Continue with Google
                   </Button>
                 </div>

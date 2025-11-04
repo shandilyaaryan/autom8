@@ -9,8 +9,8 @@ const Page = async () => {
   return (
     <div className="min-h-screen min-w-screen flex items-center justify-center flex-col gap-y-6">
       Protected Server Component
-        <div>{JSON.stringify(data, null, 2)}</div>
-        <Logout />
+      <div>{JSON.stringify(data, null, 2)}</div>
+      <Logout />
     </div>
   );
 };
