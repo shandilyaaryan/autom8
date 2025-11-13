@@ -13,8 +13,8 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
             <Image
               src="/logos/autom8.svg"
               alt="autom8"
-              width={120}
-              height={100}
+              width={130}
+              height={130}
             />
           </Link>
           {children}
