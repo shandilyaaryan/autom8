@@ -1,10 +1,35 @@
 import { inngest } from "./client";
+import { openai } from "@ai-sdk/openai";
+import { anthropic } from '@ai-sdk/anthropic';
+import { google } from '@ai-sdk/google';
 
-export const helloWorld = inngest.createFunction(
-  { id: "hello-world" },
-  { event: "test/hello.world" },
-  async ({ event, step }) => {
-    await step.sleep("wait-a-moment", "1s");
-    return { message: `Hello ${event.data.email}!` };
-  },
+import { generateText } from "ai";
+
+export const execute = inngest.createFunction(
+  { id: "execute-ai" },
+  { event: "execute/ai" },
+  async ({ step }) => {
+    const { steps: openaisteps } = await step.ai.wrap("openai-generate-text", generateText, {
+      model: openai("gpt-4o-mini"),
+      system: "You are a very helpful assisstant",
+      prompt: "Hey how are you doing my man? A QQ what is 2+2?",
+    });
+
+    const { steps: geministeps } = await step.ai.wrap("gemini-generate-text", generateText, {
+      model: google("gemini-2.5-flash"),
+      system: "You are a very helpful assisstant",
+      prompt: "Hey how are you doing my man? A QQ what is 2+2?",
+    });
+
+    const { steps: anthropicsteps } = await step.ai.wrap("anthropic-generate-text", generateText, {
+      model: anthropic("claude-sonnet-4-0"),
+      system: "You are a very helpful assisstant",
+      prompt: "Hey how are you doing my man? A QQ what is 2+2?",
+    });
+    return {
+      openaisteps,
+      geministeps,
+      anthropicsteps
+    };
+  }
 );
