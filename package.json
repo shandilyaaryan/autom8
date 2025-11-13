@@ -7,7 +7,9 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "inngest:dev": "inngest-cli dev",
+    "dev:all": "mprocs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -74,6 +76,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "inngest-cli": "^1.13.6",
+    "mprocs": "^0.7.3",
     "prisma": "^6.18.0",
     "tailwindcss": "^4",
     "tsx": "^4.20.6",
