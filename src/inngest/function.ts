@@ -12,7 +12,9 @@ export const execute = inngest.createFunction(
   async ({ step }) => {
     console.warn("Hey this is a warning! Careful!");
     console.error("This is error is meant for testing the Sentry logs");
-    Sentry.logger.info('User triggered test log', { log_source: 'sentry_test' })
+    Sentry.logger.info("User triggered test log", {
+      log_source: "sentry_test",
+    });
     const { steps: openaisteps } = await step.ai.wrap(
       "openai-generate-text",
       generateText,

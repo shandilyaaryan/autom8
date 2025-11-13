@@ -15,8 +15,8 @@ const myFont = localFont({
 });
 
 const poppins = Poppins({
-  weight: "300"
-})
+  weight: "300",
+});
 
 export default function RootLayout({
   children,
